@@ -1,6 +1,12 @@
 <template>
-  <div id="home" class="main scrollbar">{{msg}}
-    <div style="height:400px;">
+  <div id="home" class="main scrollbar">
+    {{msg}}<br>
+    {{msg}}<br>
+    {{msg}}<br>
+    {{msg}}<br>
+    {{msg}}<br>
+    {{msg}}<br>
+    <div style="height:200px;">
 
     </div>
   </div>
@@ -18,7 +24,7 @@ export default {
 </script>
 <style>
 .main {
-  height: 200px;
+  height: 100px;
   overflow-y: auto;
 }
 /*自定义滚动条*/

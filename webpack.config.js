@@ -43,8 +43,10 @@ module.exports = function(env, argv) {
 		},
 		context: __dirname,
 		resolve: {
+			extensions: ['.js', '.vue', '.json'],  // 导入时可以省略的后缀
 			alias: {
-				'vue$': 'vue/dist/vue.esm.js'
+				'vue$': 'vue/dist/vue.esm.js',
+				'@': path.join(__dirname, '..', 'src')
 			}
 		},
 		plugins: [
@@ -66,7 +68,21 @@ module.exports = function(env, argv) {
 			rules: [
 				{
 					test: /\.vue$/,
-					loader: 'vue-loader'
+					loader: 'vue-loader',
+					options: {
+						loaders: {
+							'scss': [
+								'vue-style-loader',
+								'css-loader',
+								'sass-loader'
+							],
+							'sass': [
+								'vue-style-loader',
+								'css-loader',
+								'sass-loader?indentedSyntax'
+							]
+						}
+					}
 				},
 				{
 					test: /.(js|jsx)$/,
